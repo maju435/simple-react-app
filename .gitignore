@@ -10,6 +10,7 @@
 /build
 
 # unnecessary stored
+src/*/*.css
 src/**/*.css
 
 # misc
