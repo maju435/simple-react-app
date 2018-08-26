@@ -5,7 +5,30 @@
 */
 
 @import 'variables';
+@import 'general';
 
 main {
+
   min-height: $main-min-height;
+  background-color: $main-backgorund-color;
+  font-family: $main-font-family;
+  color: $main-font-color;
+
+  @include perfect-center(column);
+
+  .main-cont {
+    box-shadow: $box-shadow;
+    width: 600px;
+    height: 600px;
+    
+    &__header {
+      padding: $main-cont-padding;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #e6e3e3;
+    }
+
+  }
+
 }

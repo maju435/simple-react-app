@@ -6,7 +6,11 @@ class Main extends Component {
   render() {
     return (
       <main>
-        
+        <div className="main-cont">
+          <div className="main-cont__header">
+            <h2>Your recipes:</h2>
+          </div>
+        </div>
       </main>
     );
   }

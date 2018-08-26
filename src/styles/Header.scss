@@ -3,15 +3,15 @@
 
 .header {
 
-  background-color: #222;
+  background-color: $theme-background-color;
   height: $header-height;
-  color: white;
+  color: $theme-font-color;
   @include perfect-center(column);
 
   &__title {
     padding: 0;
     margin: 0;
     font-size: 50px;
-    font-family: 'Cookie';
+    font-family: $theme-font-family;
   }
 }

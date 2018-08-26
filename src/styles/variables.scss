@@ -4,11 +4,29 @@
 **
 */
 
-/* HEADER */
-$header-height: 100px;
+/* colors */
+  $theme-background-color: #222;
+  $theme-font-color: #fff;
+  $main-backgorund-color: #fff;
+  $main-font-color: #222;
 
-/* FOOTER */
-$footer-height: 200px;
 
-/* MAIN */
-$main-min-height: calc(100vh - #{$header-height + $footer-height});
+/* other styles */
+
+  /* fonts */
+    $main-font-family: 'Source Sans Pro', sans-serif;
+    $theme-font-family: 'Cookie';
+
+  $box-shadow:  0px 1px 3px 0px rgba(0, 0, 0, 0.2), 
+                0px 1px 1px 0px rgba(0, 0, 0, 0.14), 
+                0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+
+  /* HEADER */
+    $header-height: 100px;
+
+  /* FOOTER */
+    $footer-height: 200px;
+
+  /* MAIN */
+    $main-min-height: calc(100vh - #{$header-height + $footer-height});
+    $main-cont-padding: 20px;

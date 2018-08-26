@@ -3,9 +3,10 @@
 
 .footer {
 
-  background-color: #222;
+  background-color: $theme-background-color;
   height: $footer-height;
-  color: white;
+  color: $theme-font-color;
+
   @include perfect-center(column);
 
   &__logo {
@@ -23,7 +24,7 @@
   &__title {
     padding: 0;
     margin: 0;
-    font-family: 'Cookie';
+    font-family: $theme-font-family;
     font-size: 30px;
   }
   
