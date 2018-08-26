@@ -17,9 +17,13 @@
     $main-font-family: 'Source Sans Pro', sans-serif;
     $theme-font-family: 'Cookie';
 
-  $box-shadow:  0px 1px 3px 0px rgba(0, 0, 0, 0.2), 
-                0px 1px 1px 0px rgba(0, 0, 0, 0.14), 
-                0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+  /* shadow of containers */
+    $box-shadow:  0px 1px 3px 0px rgba(0, 0, 0, 0.2), 
+                  0px 1px 1px 0px rgba(0, 0, 0, 0.14), 
+                  0px 2px 1px -1px rgba(0, 0, 0, 0.12);
+
+  /* transition speed of all elements with :hover */
+    $hover-transition: all 150ms ease-in-out;
 
   /* HEADER */
     $header-height: 100px;
@@ -30,3 +34,6 @@
   /* MAIN */
     $main-min-height: calc(100vh - #{$header-height + $footer-height});
     $main-cont-padding: 20px;
+
+    $border-of-cont: 1px solid #e6e3e3;
+    $border-radius: 5px;

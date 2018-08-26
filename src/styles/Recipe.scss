@@ -1,0 +1,84 @@
+/* 
+**
+**  styles for Recipe.js component
+**
+*/
+
+@import 'variables';
+@import 'general';
+
+.recipe {
+
+  border-radius: $border-radius;
+  border: $border-of-cont;
+
+  &__header {
+
+    height: 50px;
+    border-radius: 5px;
+    padding: 0 10px;
+    margin: 0;
+    background-color: #4ECDC4;
+    color: #fff;
+    font-family: $main-font-family;
+    transition: $hover-transition;
+
+    @include direction(center, left);
+
+    &:hover {
+      cursor: pointer;
+      box-shadow: 0 3px 10px rgba(0,0,0,.16), 0 3px 10px rgba(0,0,0,.23);
+      border-radius: 0;
+    }
+  }
+
+  &__body {
+    height: 0;
+    overflow: hidden;
+    transition: $hover-transition;
+
+    &.active {
+      height: 500px;
+      padding: 10px 10px;
+    }
+
+    &__ingrediens {
+
+      h3 {
+        margin-bottom: 5px;
+      }
+      padding: 10px;
+
+      .ingrediens__content {
+        border-radius: $border-radius;
+        border: $border-of-cont;
+        max-height: 150px;
+        overflow: auto;
+        ul {
+          padding: 5px 40px;
+          text-align: left;
+        }
+      }
+    }
+
+    &__preparation {
+
+      h3 {
+        margin-bottom: 5px;
+      }
+      margin-top: 10px;
+      padding: 10px;
+
+      .preparation__content {
+        border-radius: $border-radius;
+        border: $border-of-cont;
+        padding: 15px;
+        text-align: left;
+        max-height: 200px;
+        text-align: justify;
+        overflow: auto;
+      }
+    }
+  }
+
+}

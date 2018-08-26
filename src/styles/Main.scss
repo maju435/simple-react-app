@@ -1,6 +1,6 @@
 /* 
 **
-**  styles for Main component
+**  styles for Main.js component
 **
 */
 
@@ -17,16 +17,23 @@ main {
   @include perfect-center(column);
 
   .main-cont {
+    margin: 20px 0;
     box-shadow: $box-shadow;
     width: 600px;
-    height: 600px;
+    min-height: 600px;
+    border-radius: $border-radius;
     
     &__header {
       padding: $main-cont-padding;
       text-align: left;
       display: flex;
       align-items: center;
-      border-bottom: 1px solid #e6e3e3;
+      border-bottom: $border-of-cont;
+    }
+
+    &__body {
+      padding: $main-cont-padding;
+      border-radius: $border-radius
     }
 
   }

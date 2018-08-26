@@ -4,9 +4,41 @@
 **
 */
 
+
+/* 
+** mixin to center in x and y with $direction = row or column
+*/
 @mixin perfect-center($direction) {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: $direction;
+}
+
+/* 
+** nice mixin to place children element in top, bottom, center or one of sides
+** of parent component with two arguments: 
+** $y = center || top || bottom
+** $x = center || right || left
+*/
+@mixin direction($y, $x) {
+  display: flex;
+  @if $y == 'center'{
+    align-items: center;
+  }
+  @if $y == 'top'{
+    align-items: flex-start;
+  }
+  @if $y == 'bottom'{
+    align-items: flex-end;
+  }
+  @if $x == 'center'{
+    justify-content: center;
+  }
+  @if $x == 'right'{
+    justify-content: flex-end;
+  }
+  @if $x == 'left'{
+    justify-content: flex-start;
+  }
 }

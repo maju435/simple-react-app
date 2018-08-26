@@ -6,13 +6,25 @@
 // When you add this file, we won't add the default configurations which is similar
 // to "React Create App". This only has babel loader to load JavaScript.
 
-module.exports = {
-  plugins: [
-    // your custom plugins
-  ],
-  module: {
-    rules: [
-      // add your custom rules.
-    ],
-  },
+const path = require("path");
+
+// Export a function. Accept the base config as the only param.
+module.exports = (storybookBaseConfig, configType) => {
+  // configType has a value of 'DEVELOPMENT' or 'PRODUCTION'
+  // You can change the configuration based on that.
+  // 'PRODUCTION' is used when building the static version of storybook.
+
+  // Make whatever fine-grained changes you need
+  storybookBaseConfig.module.rules.push({
+    test: /\.scss$/,
+    loaders: ["style-loader", "css-loader", "sass-loader"],
+    include: path.resolve(__dirname, "../")
+  },{
+    test: /\.(png|jpg|gif|svg)$/,
+    loader: 'url-loader',
+    include: path.resolve(__dirname, '../') 
+  });
+
+  // Return the altered config
+  return storybookBaseConfig;
 };
