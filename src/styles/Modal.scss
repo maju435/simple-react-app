@@ -1,0 +1,42 @@
+/*
+**
+**  styles for Modal.js component
+**
+*/
+@import 'variables';
+@import 'general';
+
+
+.modal {
+
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.4);
+  z-index: 9998;
+  top: 0;
+
+  @include perfect-center(center);
+
+  &__cont {
+
+    background-color: #fff;
+    width: 500px;
+    height: 500px;
+    padding: 10px;
+    border-radius: $border-radius;
+    box-shadow: $box-shadow;
+
+    font-family: $main-font-family;
+    color: $main-font-color;
+
+    &__header {
+      padding: $main-cont-padding;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      border-bottom: $border-of-cont;
+    }
+
+  }
+}

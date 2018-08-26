@@ -1,38 +1,46 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import '../styles/Recipe.scss'
+import '../styles/Recipe.scss';
+
+import Button from './Button.js';
 
 class Recipe extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      isActive: false,
+    }
+  }
+
+  onClickRecipe = () => {
+    const isActive = this.state.isActive;
+    this.setState({
+      isActive: !isActive,
+    });
+  }
+
   render() {
     return (
       <div className="recipe">
-        <h3 className="recipe__header">Żeberka grilowane</h3>
-        <div className={`recipe__body ${this.props.isActive ? 'active' : null}`}>
-          <div className="recipe__body__ingrediens">
-            <h3>Ingrediens:</h3>
-            <div className="ingrediens__content">
-              <ul>
-                <li>
-                  składnik
-                </li>
-                <li>
-                  składnik
-                </li>
-                <li>
-                  składnik
-                </li>
-              </ul>
+        <h3 onClick={this.onClickRecipe} className="recipe__header">{this.props.data.title}</h3>
+        <div className={`recipe__body ${this.state.isActive ? 'active' : null}`}>
+          {this.state.isActive ? 
+            <div className="recipe__body__ingredients">
+              <h3>ingredients:</h3>
+              <div className="ingredients__content">
+                <ul>
+                  {this.props.data.ingredients.map((v, i) => {
+                    return <li key={'igredLi'+i}>{v}</li>
+                  })}
+                </ul>
+              </div>
+              <div className="ingredients__buttons">
+                <Button onClick={() => this.props.deleteRecipe(this.props.itemKey)} color="red">Delete</Button>
+                <Button onClick={() => this.props.displayModal()} color="blue">Edit</Button>
+              </div>
             </div>
-          </div>
-          <div className="recipe__body__preparation">
-            <h3>Preparation:</h3>
-            <div className="preparation__content">
-               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi bibendum justo enim, ac blandit justo hendrerit et. Integer faucibus, lectus vel venenatis tempus, leo ipsum interdum tortor, ac consectetur nisl lorem nec enim. Nullam non diam orci. Aliquam erat volutpat. Pellentesque gravida, dui a laoreet eleifend, quam leo consequat urna, vel porta lorem nunc non mi. Fusce porttitor tellus sed malesuada ultrices. Donec varius, velit at cursus condimentum, lorem ante porta elit, ac tincidunt arcu lectus non nisi. Sed gravida orci felis, sit amet volutpat dui ornare vitae.
-
-              t magna neque, posuere ut bibendum egestas, vehicula vitae est. Curabitur varius lectus nunc, sit amet bibendum quam accumsan sit amet. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at lectus elit. Nulla lectus purus, efficitur nec nulla eu, dictum iaculis justo. Donec et porta est, vel volutpat odio. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis.
-            </div> 
-          </div>
+          : null }
         </div>
       </div>
     );
@@ -40,7 +48,8 @@ class Recipe extends Component {
 }
 
 Recipe.propTypes = {
-
+  data: PropTypes.object,
+  itemKey: PropTypes.number
 };
 
 export default Recipe;
