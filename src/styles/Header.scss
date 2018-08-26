@@ -1,0 +1,17 @@
+@import 'variables';
+@import 'general';
+
+.header {
+
+  background-color: #222;
+  height: $header-height;
+  color: white;
+  @include perfect-center(column);
+
+  &__title {
+    padding: 0;
+    margin: 0;
+    font-size: 50px;
+    font-family: 'Cookie';
+  }
+}

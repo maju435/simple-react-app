@@ -1,0 +1,14 @@
+/*
+**
+**  general raviables for whole components
+**
+*/
+
+/* HEADER */
+$header-height: 100px;
+
+/* FOOTER */
+$footer-height: 200px;
+
+/* MAIN */
+$main-min-height: calc(100vh - #{$header-height + $footer-height});

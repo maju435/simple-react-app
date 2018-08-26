@@ -1,0 +1,12 @@
+/*
+**
+** some usefull and reusable styles for whole components
+**
+*/
+
+@mixin perfect-center($direction) {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-direction: $direction;
+}
