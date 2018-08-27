@@ -17,7 +17,7 @@ class Recipe extends Component {
     const isActive = this.state.isActive;
     this.setState({
       isActive: !isActive,
-    });
+    }, () => this.props.setRecipeIndex(this.props.itemKey));
   }
 
   render() {

@@ -1,12 +1,12 @@
 /*
 **
-**  styles of AddRecipe.js component 
+**  styles of EditRecipe.js component 
 **
 */
 @import 'variables';
 @import 'general';
 
-.add-recipe {
+.edit-recipe {
   @include direction(top, left);
   flex-direction: column;
   padding: 0 60px;
@@ -16,8 +16,9 @@
   &__new-ingredient {
     margin: 10px 0;
   }
-  &__list {
-    padding: 10px 40px;
+  &__input {
+    width: 100%;
+    @include perfect-center(column);
   }
   &__buttons {
     width: 100%;

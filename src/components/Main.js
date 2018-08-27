@@ -15,6 +15,7 @@ class Main extends Component {
       localStorage: JSON.parse(localStorage.getItem('Recipebook')),
       modalContentType: null,
       modalContent: null,
+      chosenRecipeIndex: null, 
     }
   }
 
@@ -22,7 +23,13 @@ class Main extends Component {
     this.setState({
       modalIsActive: !this.state.modalIsActive,
       modalContentType: content,
-    }, () => console.log(this.state.modalContent));
+    });
+  }
+
+  setRecipeIndex = (index) => {
+    this.setState({
+      chosenRecipeIndex: index,
+    });
   }
 
   setNewData = (data) => {
@@ -49,19 +56,20 @@ class Main extends Component {
   }
 
   deleteRecipe = (index) => {
-    const array = this.state.localStorage;
+    const array = this.state.localStorage.slice();
     array.splice(index, 1);
     this.setNewData(JSON.stringify(array));
   }
 
-  editRacipe = (newData, index) => {
-    const array = this.state.localStorage;
+  editRacipe = (newData) => {
+    const array = this.state.localStorage.slice();
+    const index = this.state.chosenRecipeIndex;
     array[index] = newData;
     this.setNewData(JSON.stringify(array));
   }
 
   render() {
-    console.log(this.state.localStorage)
+    console.log(this.state.localStorage);
     return (
       <main>
         <div className="main-cont">
@@ -76,6 +84,7 @@ class Main extends Component {
                     itemKey={i} 
                     displayModal={() => this.displayModal('edit')}
                     deleteRecipe={this.deleteRecipe}
+                    setRecipeIndex={this.setRecipeIndex}
                     key={i+'recipe'} 
                     data={v}
                   />
@@ -88,7 +97,7 @@ class Main extends Component {
           </div>
         </div>
         { this.state.modalIsActive ?
-          <Modal data={this.state.localStorage} displayModal={() => this.displayModal(null)} title="New recipe">
+          <Modal data={this.state.localStorage} displayModal={() => this.displayModal(null)} title="Recipe">
             {this.state.modalContentType === 'add' ? 
               <AddRecipe 
                 displayModal={() => this.displayModal(null)} 
@@ -99,7 +108,7 @@ class Main extends Component {
             {this.state.modalContentType === 'edit' ? 
               <EditRecipe 
                 displayModal={() => this.displayModal(null)} 
-                localStorage={this.state.localStorage}
+                data={this.state.localStorage[this.state.chosenRecipeIndex]}
                 setNewData={this.setNewData}
                 editRacipe={this.editRacipe}
               /> 
