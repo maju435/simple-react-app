@@ -3,8 +3,8 @@
 **  styles of EditRecipe.js component 
 **
 */
-@import 'variables';
-@import 'general';
+@import 'variables.scss';
+@import 'general.scss';
 
 .edit-recipe {
   @include direction(top, left);

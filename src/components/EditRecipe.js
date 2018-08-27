@@ -25,9 +25,10 @@ class EditRecipe extends Component {
 
   onChangeTitle = (e) => {
     const val = e.target.value
-    this.setState({
-      title: val,
-    });
+    this.setState(prevState => {
+      return {
+        title: val,
+    }});
   }
 
   onChangeIngredients = (e, i) => {
@@ -39,16 +40,18 @@ class EditRecipe extends Component {
     } else {
       array[i] = val;
     }
-    this.setState({
-      ingredients: array,
-    });
+    this.setState(prevState => {
+      return {
+        ingredients: array,
+    }});
   }
 
   addNewIngredient = (e) => {
     const val = e.target.value;
-    this.setState({
-      valueHandler: val,
-    });
+    this.setState(prevState => {
+      return{
+        valueHandler: val,
+    }});
   }
 
   addIngredient = () => {
@@ -57,10 +60,11 @@ class EditRecipe extends Component {
     if(newIngredient !== ''){
       array.push(newIngredient)
     }
-    this.setState({
-      ingredients: array,
-      valueHandler: '',
-    });
+    this.setState(prevState => {
+      return {
+        ingredients: array,
+        valueHandler: '',
+    }});
   }
 
   render() {

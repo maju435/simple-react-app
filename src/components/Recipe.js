@@ -15,9 +15,10 @@ class Recipe extends Component {
 
   onClickRecipe = () => {
     const isActive = this.state.isActive;
-    this.setState({
-      isActive: !isActive,
-    }, () => this.props.setRecipeIndex(this.props.itemKey));
+    this.setState(prevState => {
+      return{
+        isActive: !isActive,
+    }}, () => this.props.setRecipeIndex(this.props.itemKey));
   }
 
   render() {

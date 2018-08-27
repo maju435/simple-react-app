@@ -17,17 +17,19 @@ class AddRecipe extends Component {
     if (this.state.valueHandler !== ''){
       table.push(this.state.valueHandler);
     }
-    this.setState({
-      ingredients: table,
-      valueHandler: '',
-    }, console.log(this.state));
+    this.setState(prevState => {
+      return{
+        ingredients: table,
+        valueHandler: '',
+    }}, console.log(this.state));
   }
 
   onChangeIngredient = (e) => {
     const val = e.target.value
-    this.setState({
-      valueHandler: val
-    })
+    this.setState(prevState => {
+      return {
+        valueHandler: val
+    }})
   }
 
   saveNewRecipe = () => {

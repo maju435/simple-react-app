@@ -20,16 +20,18 @@ class Main extends Component {
   }
 
   displayModal = (content) => {
-    this.setState({
-      modalIsActive: !this.state.modalIsActive,
-      modalContentType: content,
-    });
+    this.setState(prevState => {
+      return{
+        modalIsActive: !this.state.modalIsActive,
+        modalContentType: content,
+    }});
   }
 
   setRecipeIndex = (index) => {
-    this.setState({
-      chosenRecipeIndex: index,
-    });
+    this.setState(prevState => {
+      return {
+        chosenRecipeIndex: index,
+    }});
   }
 
   setNewData = (data) => {
@@ -48,9 +50,10 @@ class Main extends Component {
       return comparison;
     }
     const sortedData = JSON.parse(data).sort(sortItems);
-    this.setState({
-      localStorage: sortedData
-    }, () => {
+    this.setState(prevState => {
+      return{
+        localStorage: sortedData
+    }}, () => {
       localStorage.setItem('Recipebook', JSON.stringify(sortedData));
     });
   }
